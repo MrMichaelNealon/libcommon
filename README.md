@@ -5,7 +5,7 @@ This is a bunch of c source files that provide functionality I use in a lot of m
 
 ## Input/output routines.
 
-We have basic input/output routines (both for writing to stdin and files), I wrote some little variadic functions that are similar to fprintf() in nature but with the added advantage that you can embed ANSI escape codes in your output very easily - something like:
+We have basic input/output routines. I wrote some little variadic functions that are similar to fprintf() in nature but with the added advantage that you can embed ANSI escape codes in your output very easily - something like:
 
 ```
    fout(stdout, "Something %`:red`RED%`reset` will %`bright`stand out%`reset`);

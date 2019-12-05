@@ -11,12 +11,16 @@ We have basic input/output routines. I wrote some little variadic functions that
    fout(stdout, "Something %`:red`RED%`reset` will %`bright`stand out%`reset`);
 ```
 
-Where the % is the identifier and the following quoted (backticked) string is an instruction. I'll be uploading a neat little port scanner I wrote in c.
+Where the % is the identifier and the following quoted (backticked) string is an instruction. I'll be uploading a neat little port scanner I wrote in c over the next few days that takes advantage of this and a few other features from this set of libraries.
 
 It basically works like this - the data in the back-ticked string will be either an instruction:
 
 ```
-   bright, dim, underline, reset, etc.
+   bright
+   dim
+   underline
+   reset
+   etc.
 ```
 
 Or we can embed some : separated colour codes:
@@ -46,12 +50,25 @@ For example:
 
 Would dump blue TEXT on a white background to the console.
 
+Of course, with fout() and relative functions being variadic in nature, we can embed format specifiers within the backticked strings that will expand to a given parameter:
+
+```
+   fout(stdout, "Some %`%s:%d`green on red!%`reset", "red", 2);
+```
+
+You'll find all of the code in the files:
+
+```
+	ansi.h/ansi.c
+	fout.h/fout.c
+```
+
 
 ## Memory
 
-We also have a functions for handling dynamic memory (lists).
+We also have a library of functions for handling dynamic memory (lists).
 
-there's a lot to cover, there - but the code is fairly self explanitory. There's no linked lists or anything like that - my goal with this module was to provide quick memory allocation and garbage collection. I wanted something as robust and dynamic as arrays in say, php or JavaScript. This neat little library more than fulfils that need.
+There's a lot to cover, here - but the code is fairly self explanitory. There's no linked lists or anything like that - my goal with this module was to provide quick memory allocation and garbage collection. I wanted something as robust and dynamic as arrays in say, php or JavaScript. This neat little library more than fulfils that need. I keep going on about this port scanner! It's on a HD somewhre, it's old but gives a failry decent demo of this library in action...I'll get it uploaded as soon as I find it (or maybe just re-write it, bigger, better - with go-faster stripes!)
 
 
 ## Other...stuff!
@@ -61,9 +78,9 @@ We have routines for typical, every day things like handling files, building pat
 
 ## Wrap up
 
-As it's old code that I know like the back of my hand, it's very stable if somewhat archaic in appearance (No comments!).
+As it's old code that I know like the back of my hand! It's very stable if somewhat archaic in appearance (No comments!) although fairly clean and readable code (as readable as c can be...so pretty!).
 
-Anyway - I might upload some demo programs, including the port scanner, over the next few days. Hopefully someone finds it as useful as I have over the years. Free to do as you like with it - I don't mind, just gimmie a nod and let me know if you do use it, what your experiences were, how it could be imporoved - or feel free to contribute!
+Anyway - I might upload some demo programs, including the port scanner, over the next few days. Hopefully someone finds it as useful as I have over the years. Free to do as you like with it - I don't mind, just gimmie a nod and let me know if you do use it, what your experiences were, how it could be improved - or feel free to contribute or criticise!
 
 
 Michael.
